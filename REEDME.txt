@@ -1,0 +1,1 @@
+a unity3d sample of how read a json file and show it on the gui

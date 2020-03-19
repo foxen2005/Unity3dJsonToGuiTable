@@ -32,13 +32,14 @@ public class Reader : MonoBehaviour
     GameObject[] InstaColumnas;
     public Transform ColumBlock;
 
-    public string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "JsonChallenge.json");
+  
+    string filePath;
 
     void Start()
     {
-
-        //TextFile = File.ReadAllText("Assets/StreamingAssets/JsonChallenge.json");
-        TextFile = File.ReadAllText(filePath);
+       
+        TextFile = File.ReadAllText(Application.streamingAssetsPath + "/JsonChallenge.json");
+    
 
         StartCoroutine(Lector());
         InstaColumnas = new GameObject[sizeColum];
@@ -62,7 +63,6 @@ public class Reader : MonoBehaviour
 
         StopAllCoroutines();
 
-
     }
 
     public IEnumerator Lector()
@@ -74,7 +74,6 @@ public class Reader : MonoBehaviour
         sizeColum = DATA["ColumnHeaders"].Count;
         sizeList = DATA["Data"].Count;
 
-       
         yield return null;
     }
 

@@ -1,3 +1,4 @@
+
 {
   "Title": "Team Members",
   "ColumnHeaders" :
@@ -5,10 +6,7 @@
     "ID",
     "Name",
     "Role",
-    "Nickname",
-
-	
-	
+    "Nickname"
   ],
   "Data" :
   [

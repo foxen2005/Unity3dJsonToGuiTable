@@ -17,15 +17,14 @@ public class ColumFil : MonoBehaviour
     public Text titleMain, ColumValue;
     public int NameValue;
 
-    public string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "JsonChallenge.json");
+    
+    
 
 
     void Start()
     {
 
-
-        // TextFile = File.ReadAllText("Assets/StreamingAssets/JsonChallenge.json");
-        TextFile = File.ReadAllText(filePath);
+        TextFile = File.ReadAllText(Application.streamingAssetsPath + "/JsonChallenge.json");
 
         StartCoroutine(LectorColumna());
 
@@ -39,10 +38,7 @@ public class ColumFil : MonoBehaviour
     {
         NameValue = int.Parse(gameObject.name);
 
-
         StartCoroutine(LectorColumna());
-
-        // StopAllCoroutines();
 
         titleMain.text = TitleList[NameValue];
         ColumValue.text = textColum;
@@ -52,7 +48,6 @@ public class ColumFil : MonoBehaviour
     {
         var DATA = JSON.Parse(TextFile);
        
-
         ListSize = DATA["Data"].Count;
         TitleSize = DATA["ColumnHeaders"].Count;
 
@@ -64,9 +59,7 @@ public class ColumFil : MonoBehaviour
 
         if (ListPosition < ListSize)
         {
-
             DataList[ListPosition] = DATA["Data"][ListPosition][TitleList[NameValue]].Value; //lista
-            // textColum += DataList[ListPosition] = DATA["Data"][ListPosition][TitleList[NameValue]].Value +"\n"; //lista
 
             textColum += DataList[ListPosition] + "\n";
             ListPosition++;
